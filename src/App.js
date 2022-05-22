@@ -8,6 +8,8 @@ import Footer from './components/shared/Footer';
 import Purchase from './components/pages/Purchase/Purchase';
 import Login from './components/pages/Login/Login';
 import SignUp from './components/pages/Login/SignUp';
+import RequireAuth from './components/pages/Login/RequireAuth';
+import NotFound from './components/shared/NotFound';
 
 function App() {
   return (
@@ -16,10 +18,15 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
-        <Route path='/tools' element={<Tools></Tools>}></Route>
-        <Route path='/purchase' element={<Purchase></Purchase>}></Route>
+        <Route path='/tools' element={<RequireAuth>
+          <Tools></Tools>
+        </RequireAuth>}></Route>
+        <Route path='/purchase' element={<RequireAuth>
+          <Purchase></Purchase>
+        </RequireAuth>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

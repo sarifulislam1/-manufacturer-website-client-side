@@ -103,15 +103,15 @@ const Login = () => {
 
 
                         {signInError}
-                        <input className='btn w-full max-w-xs bg-primary text-white' type="submit" value='Login' />
+                        <input className='btn btn-ghost w-full max-w-xs bg-primary text-white' type="submit" value='Login' />
                     </form>
 
                     <p><small>New to PH-TOOLS Portal ? <Link className='text-primary' to="/signup">Create New Account</Link></small></p>
                     <div className="divider">OR</div>
                     <button
                         onClick={() => signInWithGoogle()}
-                        className="btn btn-outline bg-primary text-white"
-                    >Continue With Google</button>
+                        className="btn btn-ghost bg-primary text-white"
+                    >Google</button>
                 </div>
             </div>
         </div>
