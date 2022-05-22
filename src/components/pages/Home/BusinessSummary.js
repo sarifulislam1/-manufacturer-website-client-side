@@ -4,7 +4,7 @@ import { FaUsers, FaLuggageCart, FaFlagCheckered, FaRegClipboard, FaRegSmileBeam
 const BusinessSummary = () => {
     return (
         <div>
-            <h2 className='text-2xl font-bold text-primary text-center my-12'>Business Summary</h2>
+            <h2 className='text-2xl font-bold text-primary text-center my-16'>Business Summary</h2>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 mx-auto'>
                 <div>
                     <div className="card w-96 bg-base-100 shadow-xl mx-auto">
