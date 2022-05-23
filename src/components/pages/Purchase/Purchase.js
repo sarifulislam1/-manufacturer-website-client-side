@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import auth from '../../Firebase/Firebase.init';
 
 const Purchase = () => {
     let { id } = useParams();
+    const [user, loading, error] = useAuthState(auth);
     const [purchaseTool, setPurchaseTool] = useState({})
     const [isReload, setIsReload] = useState(false);
     useEffect(() => {
@@ -20,6 +23,8 @@ const Purchase = () => {
         const quantity = e.target.quantity.value
         // console.log(quantity);
         let availableQuantity = Number(purchaseTool.availableQuantity) - quantity
+        const userName = user.displayName
+        const userEmail = user.email
         if (purchaseTool.availableQuantity >= quantity && purchaseTool.minimumQuantity <= quantity) {
 
             const url = `http://localhost:5000/tools/${id}`
@@ -29,23 +34,45 @@ const Purchase = () => {
                     'Content-type': 'application/json',
                 },
                 body: JSON.stringify({
-                    availableQuantity
+                    availableQuantity,
+                    userName,
+                    userEmail
                 }),
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    // console.log(data);
-                    setPurchaseTool(data)
-                    setIsReload(!isReload)
-                    e.target.reset('')
-                    toast.success('Order done')
+                    if (data.success) {
+                        setPurchaseTool(data)
+                        setIsReload(!isReload)
+                        e.target.reset('')
+                        toast.success('Order done')
 
+
+                        // fetch('http://localhost:5000/orders', {
+                        //     method: 'POST',
+                        //     headers: {
+                        //         'Content-type': 'application/json'
+                        //     },
+                        //     body: JSON.stringify({
+                        //         userName,
+                        //         userEmail,
+                        //         purchaseTool
+
+                        //     })
+                        //         .then(res => res.json())
+                        //         .then(data => {
+                        //             console.log(data);
+                        //         })
+                        // })
+                    }
+                    // fetch('http://localhost:5000/tools/orders')
                 });
+
         }
         else {
             toast.error("You can't order this quantity")
         }
-
+        console.log(user);
     }
     return (
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 mx-auto'>

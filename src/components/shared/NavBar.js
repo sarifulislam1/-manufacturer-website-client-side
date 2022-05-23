@@ -22,6 +22,7 @@ const NavBar = () => {
                         <li><Link to='/home' className='text-primary'>Home</Link></li>
                         <li><Link to='/tools' className='text-primary'>Tools</Link></li>
                         <li><Link to='/blogs' className='text-primary'>Blogs</Link></li>
+                        <li>{user && <Link to='/dashboard' className='text-primary'>Dashboard</Link>}</li>
                         <li>{user ? <button className="btn btn-ghost text-primary" onClick={logout} >Log Out</button> : <Link className='text-primary' to="/login">Login</Link>}</li>
 
 
@@ -34,10 +35,16 @@ const NavBar = () => {
                     <li><Link to='/home' className='text-primary'>Home</Link></li>
                     <li><Link to='/tools' className='text-primary'>Tools</Link></li>
                     <li><Link to='/blogs' className='text-primary'>Blogs</Link></li>
+                    <li>{user && <Link to='/dashboard' className='text-primary'>Dashboard</Link>}</li>
                     <li>{user ? <button className="btn btn-ghost text-primary bg-white" onClick={logout} >Log Out</button> : <Link className='text-primary' to="/login">Login</Link>}</li>
 
 
                 </ul>
+            </div>
+            <div className="navbar-end">
+                <label tabIndex="1" for="dashboard-sidebar" className="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                </label>
             </div>
         </div>
     );
