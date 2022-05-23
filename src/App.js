@@ -1,5 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import NavBar from './components/shared/NavBar';
 import { Route, Routes } from 'react-router-dom';
 import Home from './components/pages/Home/Home';
@@ -10,6 +11,7 @@ import Login from './components/pages/Login/Login';
 import SignUp from './components/pages/Login/SignUp';
 import RequireAuth from './components/pages/Login/RequireAuth';
 import NotFound from './components/shared/NotFound';
+import Blogs from './components/pages/Blogs/Blogs';
 
 function App() {
   return (
@@ -21,13 +23,15 @@ function App() {
         <Route path='/tools' element={<RequireAuth>
           <Tools></Tools>
         </RequireAuth>}></Route>
-        <Route path='/purchase' element={<RequireAuth>
+        <Route path='/purchase/:id' element={<RequireAuth>
           <Purchase></Purchase>
         </RequireAuth>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <ToastContainer />
       <Footer></Footer>
     </div>
   );
