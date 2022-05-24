@@ -26,6 +26,7 @@ const Purchase = () => {
         const userName = user.displayName
         const userEmail = user.email
         const totalPrice = Number(quantity) * purchaseTool.price
+        const orderName = purchaseTool.name
         if (purchaseTool.availableQuantity >= quantity && purchaseTool.minimumQuantity <= quantity) {
 
             const url = `http://localhost:5000/tools/${id}`
@@ -45,11 +46,11 @@ const Purchase = () => {
                     setPurchaseTool(data)
                     setIsReload(!isReload)
                     e.target.reset('')
-                    toast.success('Your total price', totalPrice)
+                    toast.success('Your order done')
                 });
         }
         else {
-            toast.error("You can't order this quantity")
+            toast.error("You can't order ")
         }
         // console.log(user);
         fetch('http://localhost:5000/orders', {
@@ -58,11 +59,12 @@ const Purchase = () => {
                 'Content-type': 'application/json',
             },
             body: JSON.stringify({
-                purchaseTool,
+                orderName,
                 totalPrice,
                 quantity,
+                userEmail,
                 userName,
-                userEmail
+                user
             }),
         })
             .then(res => res.json())

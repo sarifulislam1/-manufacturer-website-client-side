@@ -15,6 +15,7 @@ const Dashboard = () => {
                     {/* <!-- Sidebar content here --> */}
                     <li><Link to="/dashboard">My Orders</Link></li>
                     <li><Link to="/dashboard/review">My Reviews</Link></li>
+                    <li><Link to="/dashboard/all-orders">All Orders</Link></li>
                     {/* { admin && <>
                     <li><Link to="/dashboard/users">All Users</Link></li>
                     <li><Link to="/dashboard/addDoctor">Add a Doctor</Link></li>
