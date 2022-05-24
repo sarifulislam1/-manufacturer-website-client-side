@@ -4,6 +4,7 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfil
 import { useForm } from "react-hook-form";
 
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useToken from '../../../hooks/useToken';
 import auth from '../../Firebase/Firebase.init';
 import Loading from '../../shared/Loading';
 
@@ -22,10 +23,10 @@ const SignUp = () => {
 
     const [updateProfile, updating, uError] = useUpdateProfile(auth);
 
+    const [token] = useToken(user || gUser)
 
-    if (user || gUser) {
-
-        console.log(user, gUser);
+    if (token || user || gUser) {
+        navigate('/')
     }
 
     if (loading || gLoading || updating) {
@@ -40,7 +41,7 @@ const SignUp = () => {
         console.log(data)
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
-        navigate('/home')
+        // navigate('/home')
     };
 
 

@@ -25,6 +25,7 @@ const Purchase = () => {
         let availableQuantity = Number(purchaseTool.availableQuantity) - quantity
         const userName = user.displayName
         const userEmail = user.email
+        const totalPrice = Number(quantity) * purchaseTool.price
         if (purchaseTool.availableQuantity >= quantity && purchaseTool.minimumQuantity <= quantity) {
 
             const url = `http://localhost:5000/tools/${id}`
@@ -41,38 +42,31 @@ const Purchase = () => {
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    if (data.success) {
-                        setPurchaseTool(data)
-                        setIsReload(!isReload)
-                        e.target.reset('')
-                        toast.success('Order done')
-
-
-                        // fetch('http://localhost:5000/orders', {
-                        //     method: 'POST',
-                        //     headers: {
-                        //         'Content-type': 'application/json'
-                        //     },
-                        //     body: JSON.stringify({
-                        //         userName,
-                        //         userEmail,
-                        //         purchaseTool
-
-                        //     })
-                        //         .then(res => res.json())
-                        //         .then(data => {
-                        //             console.log(data);
-                        //         })
-                        // })
-                    }
-                    // fetch('http://localhost:5000/tools/orders')
+                    setPurchaseTool(data)
+                    setIsReload(!isReload)
+                    e.target.reset('')
+                    toast.success('Your total price', totalPrice)
                 });
-
         }
         else {
             toast.error("You can't order this quantity")
         }
-        console.log(user);
+        // console.log(user);
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify({
+                purchaseTool,
+                totalPrice,
+                quantity,
+                userName,
+                userEmail
+            }),
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
     }
     return (
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 mx-auto'>
