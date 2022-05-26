@@ -16,6 +16,7 @@ import Dashboard from './components/pages/Dashboard/Dashboard';
 import MyReviews from './components/pages/Dashboard/MyReviews';
 import MyOrders from './components/pages/Dashboard/MyOrders';
 import AllOrders from './components/pages/Dashboard/AllOrders';
+import InsertNewTool from './components/pages/Dashboard/InsertNewTool';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path='/dashboard/review' element={<MyReviews></MyReviews>}></Route>
           <Route path='/dashboard/all-orders' element={<AllOrders></AllOrders>}></Route>
+          <Route path='/dashboard/insert-new-tool' element={<InsertNewTool></InsertNewTool>}></Route>
         </Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>

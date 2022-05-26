@@ -12,7 +12,7 @@ const Tool = ({ tools }) => {
             <div>
                 <div className="card w-96 bg-base-100 shadow-xl mx-auto my-10">
                     <figure><img className='h-64' src={tools.img} alt="Shoes" /></figure>
-                    <div className="card-body text-left text-white bg-primary">
+                    <div className="card-body text-left text-white bg-primary h-80">
                         <div className='font-bold'>
                             <h2 className="card-title">{tools.name}</h2>
                             <p>Available Quantity: {tools.availableQuantity}</p>
