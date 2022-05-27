@@ -24,7 +24,7 @@ const Purchase = () => {
         // console.log(quantity);
         let availableQuantity = Number(purchaseTool.availableQuantity) - quantity
         const userName = user.displayName
-        const userEmail = user.email
+        // const userEmail = user.email
         const totalPrice = Number(quantity) * purchaseTool.price
         const orderName = purchaseTool.name
         const phone = e.target.phone.value
@@ -38,8 +38,9 @@ const Purchase = () => {
                 },
                 body: JSON.stringify({
                     availableQuantity,
-                    userName,
-                    userEmail
+                    userEmail: user.email,
+                    orderName,
+
                 }),
             })
                 .then((res) => res.json())
@@ -63,7 +64,7 @@ const Purchase = () => {
                 orderName,
                 totalPrice,
                 quantity,
-                userEmail,
+                userEmail: user.email,
                 userName,
                 phone,
                 user

@@ -11,7 +11,9 @@ const useToken = user => {
                 headers: {
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify(currentUser)
+                body: JSON.stringify({
+                    currentUser
+                })
             })
                 .then(res => res.json())
                 .then(data => {
