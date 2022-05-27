@@ -34,20 +34,20 @@ const InsertNewTool = () => {
                 <div className="card w-96 bg-base-100 shadow-xl mx-auto mt-5">
                     <div className="card-body">
                         <h1 className='text-2xl font-bold text-primary'>Insert New Tool</h1>
-                        <form onSubmit={insertNewTool}>
-                            <input type="text" placeholder="Tool name" name='name' required className="input input-bordered w-full max-w-xs m-2" />
+                        <form onSubmit={insertNewTool} mx-auto>
+                            <input type="text" placeholder="Tool name" name='name' required className="mx-auto input input-bordered w-full max-w-xs m-2" />
                             <br />
-                            <input type="text" placeholder="Image Link" name='img' required className="input input-bordered w-full max-w-xs m-2" />
+                            <input type="text" placeholder="Image Link" name='img' required className="mx-auto input input-bordered w-full max-w-xs m-2" />
                             <br />
-                            <textarea class="textarea w-full textarea-bordered m-2" name='description' placeholder="Tool Description"></textarea>
+                            <textarea class="textarea w-full textarea-bordered mx-auto m-2" name='description' placeholder="Tool Description"></textarea>
                             <br />
-                            <input type="text" placeholder="Minimum Quantity" name='minimumQuantity' required className="input input-bordered w-full max-w-xs m-2" />
+                            <input type="text" placeholder="Minimum Quantity" name='minimumQuantity' required className="mx-auto input input-bordered w-full max-w-xs m-2" />
                             <br />
-                            <input type="text" placeholder="Available Quantity" name='availableQuantity' required className="input input-bordered w-full max-w-xs m-2" />
+                            <input type="text" placeholder="Available Quantity" name='availableQuantity' required className="mx-auto input input-bordered w-full max-w-xs m-2" />
                             <br />
-                            <input type="text" placeholder="Price" name='price' required className="input input-bordered w-full max-w-xs m-2" />
+                            <input type="text" placeholder="Price" name='price' required className="input input-bordered w-full max-w-xs m-2 mx-auto" />
                             <br />
-                            <input className='btn btn-primary text-white m-5' type="submit" value="Purchase" />
+                            <input className='btn btn-primary text-white w-full mx-auto m-5' type="submit" value="Insert" />
                         </form>
                     </div>
                 </div>

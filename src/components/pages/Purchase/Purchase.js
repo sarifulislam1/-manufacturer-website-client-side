@@ -27,6 +27,7 @@ const Purchase = () => {
         const userEmail = user.email
         const totalPrice = Number(quantity) * purchaseTool.price
         const orderName = purchaseTool.name
+        const phone = e.target.phone.value
         if (purchaseTool.availableQuantity >= quantity && purchaseTool.minimumQuantity <= quantity) {
 
             const url = `http://localhost:5000/tools/${id}`
@@ -64,6 +65,7 @@ const Purchase = () => {
                 quantity,
                 userEmail,
                 userName,
+                phone,
                 user
             }),
         })
@@ -90,13 +92,17 @@ const Purchase = () => {
                 <div className="card w-96 bg-base-100 shadow-xl">
                     <div className="card-body">
                         <form onSubmit={purchaseHandle}>
-                            <p className='text-left p-4'>Minimum Quantity: {purchaseTool.minimumQuantity}</p>
+                            <p className='text-left m-2'>Minimum Quantity: {purchaseTool.minimumQuantity}</p>
                             <input type="number" placeholder="Your Quantity" name='quantity' required className="input input-bordered w-full max-w-xs" />
                             <br />
+                            <p className='text-left m-2'>Name:</p>
+                            <input type="text" placeholder={user.displayName} name='name' readOnly className="m-2 mx-auto input input-bordered w-full max-w-xs" />
+                            <br />
+                            <p className='text-left m-2'>Phone:</p>
+                            <input type="number" placeholder='Phone Number' name='phone' required className="m-2 mx-auto input input-bordered w-full max-w-xs" />
+                            <br />
                             <p className='text-left p-4'>Price Per Unit ${purchaseTool.price}</p>
-                            {/* <input type="text" value={purchaseTool.price} disabled className="input input-bordered w-full max-w-xs" /> */}
-                            {/* <br /> */}
-                            <input className='btn btn-primary text-white m-5' type="submit" value="Purchase" />
+                            <input className='btn btn-primary w-full text-white mx-auto m-5' type="submit" value="Purchase" />
                         </form>
                     </div>
                 </div>

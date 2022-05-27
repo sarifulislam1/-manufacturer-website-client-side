@@ -3,6 +3,7 @@ import Banner from './Banner';
 import BusinessSummary from './BusinessSummary';
 import Tools from './Tools';
 import Tool from './Tool';
+import Review from '../Dashboard/Review';
 
 const Home = () => {
     const [tools, setTools] = useState([])
@@ -26,6 +27,7 @@ const Home = () => {
                 }
             </div>
             <BusinessSummary></BusinessSummary>
+            <Review></Review>
         </div>
     );
 };
