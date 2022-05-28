@@ -14,9 +14,9 @@ const Review = () => {
             <h1 className='text-3xl text-primary m-8'>Reviews</h1>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 mx-auto '>
                 {
-                    reviews.map(review => <div key={review._id} class="card w-96 bg-primary text-white shadow-xl mx-auto mb-6">
-                        <div class="card-body ">
-                            <h2 class="card-title">{review.name} </h2>
+                    reviews.map(review => <div key={review._id} className="card w-96 bg-primary text-white shadow-xl mx-auto mb-6">
+                        <div className="card-body ">
+                            <h2 className="card-title">{review.name} </h2>
                             <p className='h-40'>{review.description.slice(0, 290)}</p>
                             <p>Rating 5 Out Of: <span className='font-bold'> {review.rating}</span></p>
                         </div>

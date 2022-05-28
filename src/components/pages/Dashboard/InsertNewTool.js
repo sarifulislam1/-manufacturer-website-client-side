@@ -39,7 +39,7 @@ const InsertNewTool = () => {
                             <br />
                             <input type="text" placeholder="Image Link" name='img' required className="mx-auto input input-bordered w-full max-w-xs m-2" />
                             <br />
-                            <textarea class="textarea w-full textarea-bordered mx-auto m-2" name='description' placeholder="Tool Description"></textarea>
+                            <textarea className="textarea w-full textarea-bordered mx-auto m-2" name='description' placeholder="Tool Description"></textarea>
                             <br />
                             <input type="text" placeholder="Minimum Quantity" name='minimumQuantity' required className="mx-auto input input-bordered w-full max-w-xs m-2" />
                             <br />

@@ -25,19 +25,19 @@ const MyOrders = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
                     setMyOrder(data)
                 })
         }
     }, [user])
-    console.log(user.email);
+
 
     return (
         <div>
             {/* <p>my order{myOrder.length}</p> */}
             <p className='text-3xl font-bold m-3 text-primary'>Total order: {myOrder.length}</p>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
 
                     <thead>
                         <tr>
@@ -56,7 +56,7 @@ const MyOrders = () => {
                                 <td>{order.user.email}</td>
                                 <td>{order.orderName}</td>
                                 <td>{(order.totalPrice && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}><button className='btn btn-xs btn-primary'>pay</button></Link>}
-                                    {(order.totalPrice && !order.paid) && <button className='btn btn-xs btn-primary mx-8'>Cancel</button>}
+                                    {/* {(order.totalPrice && !order.paid) && <button className='btn btn-xs btn-primary mx-8'>Cancel</button>} */}
                                     {(order.totalPrice && order.paid) && <div>
                                         <p><span className='text-success'>Paid</span></p>
                                         <p>Transaction id: <span className='text-success'>{order.transactionId}</span></p>
