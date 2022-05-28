@@ -18,6 +18,7 @@ import MyOrders from './components/pages/Dashboard/MyOrders';
 import InsertNewTool from './components/pages/Dashboard/InsertNewTool';
 import MyProfile from './components/pages/Dashboard/MyProfile';
 import AllUsers from './components/pages/Dashboard/AllUsers';
+import RequireAdmin from './components/pages/Login/RequireAdmin';
 
 function App() {
   return (
@@ -42,7 +43,7 @@ function App() {
 
           <Route path='/dashboard/insert-new-tool' element={<InsertNewTool></InsertNewTool>}></Route>
           <Route path='/dashboard/my-profile' element={<MyProfile></MyProfile>}></Route>
-          <Route path='/dashboard/all-users' element={<AllUsers></AllUsers>}></Route>
+          <Route path='/dashboard/all-users' element={<RequireAdmin><AllUsers></AllUsers></RequireAdmin>}></Route>
         </Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>

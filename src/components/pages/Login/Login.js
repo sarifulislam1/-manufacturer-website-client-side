@@ -21,7 +21,7 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    const [token] = useToken(user, gUser)
+    const [token] = useToken(user || gUser)
 
     let from = location.state?.from?.pathname || "/";
     useEffect(() => {

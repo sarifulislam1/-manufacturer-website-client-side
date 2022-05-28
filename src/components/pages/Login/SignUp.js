@@ -25,7 +25,7 @@ const SignUp = () => {
 
     const [token] = useToken(user || gUser)
 
-    if (token || user || gUser) {
+    if (token) {
         navigate('/')
     }
 
