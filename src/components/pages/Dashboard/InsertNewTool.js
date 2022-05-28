@@ -10,7 +10,7 @@ const InsertNewTool = () => {
         const minimumQuantity = e.target.minimumQuantity.value
         const availableQuantity = e.target.availableQuantity.value
         const price = e.target.price.value
-        fetch('http://localhost:5000/tools', {
+        fetch('https://serene-gorge-55852.herokuapp.com/tools', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',

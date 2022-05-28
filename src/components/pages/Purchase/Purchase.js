@@ -10,7 +10,7 @@ const Purchase = () => {
     const [purchaseTool, setPurchaseTool] = useState({})
     const [isReload, setIsReload] = useState(false);
     useEffect(() => {
-        fetch(`http://localhost:5000/tools/${id}`)
+        fetch(`https://serene-gorge-55852.herokuapp.com/tools/${id}`)
             .then(res => res.json())
             .then(data => {
                 setPurchaseTool(data)
@@ -30,7 +30,7 @@ const Purchase = () => {
         const phone = e.target.phone.value
         if (purchaseTool.availableQuantity >= quantity && purchaseTool.minimumQuantity <= quantity) {
 
-            const url = `http://localhost:5000/tools/${id}`
+            const url = `https://serene-gorge-55852.herokuapp.com/tools/${id}`
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -55,7 +55,7 @@ const Purchase = () => {
             toast.error("You can't order ")
         }
         // console.log(user);
-        fetch('http://localhost:5000/orders', {
+        fetch('https://serene-gorge-55852.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',

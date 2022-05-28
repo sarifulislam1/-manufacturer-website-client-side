@@ -13,11 +13,11 @@ const MyOrders = () => {
 
     useEffect(() => {
         //  'authorization': `${user?.email}  ${localStorage.getItem("accessToken")}`,
-        // const url = `http://localhost:5000/orders?myOrder=${}`;      
+        // const url = `https://serene-gorge-55852.herokuapp.com/orders?myOrder=${}`;      
         if (user) {
-            // fetch(`http://localhost:5000/orders/?userEmail=${user.email}`{
+            // fetch(`https://serene-gorge-55852.herokuapp.com/orders/?userEmail=${user.email}`{
             // })
-            fetch(`http://localhost:5000/orders/?userEmail=${user.email}`, {
+            fetch(`https://serene-gorge-55852.herokuapp.com/orders/?userEmail=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`

@@ -11,7 +11,7 @@ const MyReviews = () => {
         const description = e.target.description.value
         const rating = e.target.rating.value
         const name = user.displayName
-        fetch('http://localhost:5000/add-review', {
+        fetch('https://serene-gorge-55852.herokuapp.com/add-review', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
