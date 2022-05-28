@@ -19,6 +19,7 @@ import InsertNewTool from './components/pages/Dashboard/InsertNewTool';
 import MyProfile from './components/pages/Dashboard/MyProfile';
 import AllUsers from './components/pages/Dashboard/AllUsers';
 import RequireAdmin from './components/pages/Login/RequireAdmin';
+import Payment from './components/pages/Dashboard/Payment';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
 
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path='/dashboard/review' element={<MyReviews></MyReviews>}></Route>
+          <Route path='/dashboard/payment/:id' element={<Payment></Payment>}></Route>
 
           <Route path='/dashboard/insert-new-tool' element={<InsertNewTool></InsertNewTool>}></Route>
           <Route path='/dashboard/my-profile' element={<MyProfile></MyProfile>}></Route>

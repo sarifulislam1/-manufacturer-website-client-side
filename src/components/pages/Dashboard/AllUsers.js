@@ -23,14 +23,15 @@ const AllUsers = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Job</th>
-                            <th>Favorite Color</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            users.map(user => <UserRow
+                            users.map((user, index) => <UserRow
                                 key={user._id}
                                 user={user}
+                                index={index}
                                 refetch={refetch}
                             ></UserRow>)
                         }
